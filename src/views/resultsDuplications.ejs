@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('partials/header') -%>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+                <div class="card shadow-lg mb-5 bg-white rounded">
+                    <div class="card-body">
+                        <h4 class="text-center">
+                            Crecimiento exponencial (tiempo de duplicación)
+                        </h4>
+                        <h5>Datos</h5>
+                        <div class="row">
+                            <div class="col-6 mt-2">
+                                <label for=" ">Población Inicial (no):
+                    <strong> <%= duplication.no %> </strong></label
+                  >
+                </div>
+                <div class="col-6 mt-2">
+                  <label for=" "
+                    >Tiempo de duplicación (a):
+                    <strong>
+                      <%=duplication.a %> <%=duplication.medicion %>
+                    </strong></label
+                  >
+                </div>
+                <div class="col-6 mt-2">
+                  <label for=" ">
+                    (t):
+                    <strong>
+                      <%= duplication.t %> <%=duplication.medicion %>
+                    </strong></label
+                  >
+                </div>
+                <div class="col-6 mt-2">
+                  <label for=" "
+                    >nt: <strong> <%= duplication.nt %> </strong></label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-3">
+          <a href="/duplication">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded-pill">
+              <div class="card-body">
+                <h4 class="text-center text-dark">Población Inicial</h4>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-3">
+          <div class="card shadow-lg p-3 mb-5 bg-white rounded-pill">
+            <div class="card-body">
+              <h4 class="text-center text-dark">Población despues</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <p>Tamaño Inicial (no):
+        <%=duplication.inicialSize()%>
+    </p>
+
+    <p>Tamaño inical:
+        <%=duplication.sizeAfter(12) %>
+    </p>
+
+    <p>lista hasta el 12</p>
+    <% let lst=duplication.sizeList(12, 2); lst.forEach(v=>{ %>
+        <p>t:
+            <%=v.i%> Value:
+                <%=v.value%>
+        </p>
+        <% }) %> -->
+  </body>
+</html>

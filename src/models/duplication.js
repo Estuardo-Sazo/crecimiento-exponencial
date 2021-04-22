@@ -10,13 +10,15 @@ class Duplication {
         this.t = '';
         this.a = '';
         this.no = '';
+        this.medicion = '';
     }
 
-    setdata(nt, t, a, no) {
+    setdata(nt = 0, t = 0, a = 0, no = 0, medicion = 'días') {
         this.nt = nt;
         this.t = t;
         this.a = a;
         this.no = no;
+        this.medicion = medicion;
     }
 
     inicialSize() {

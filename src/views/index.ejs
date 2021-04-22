@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <%- include('partials/header') -%>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
-      <h2 class="text-center">Selecciona un metodo</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-4">
-          <a href="/duplication">
-            <div class="card">
-              <div class="card-body">Duplicidad</div>
+        <h2 class="text-center text-dark">Selecciona un metodo</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <a href="/duplication">
+                    <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                        <div class="card-body">
+                            <h4 class="text-center text-dark">Duplicidad</h4>
+                        </div>
+                    </div>
+                </a>
             </div>
-          </a>
+            <div class="col-md-4">
+                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="card-body">
+                        <h4 class="text-center text-dark">Tasa relativa</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">Tasa relativa</div>
-          </div>
-        </div>
-      </div>
     </div>
-  </body>
+</body>
+
 </html>
