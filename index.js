@@ -25,5 +25,6 @@ app.use((req, res, next) => {
 
 
 app.listen(config.api.port, () => {
-    console.log('APP in port ', config.api.port);
+    console.log('APP in port ', 'http://' + config.api.host + ':' +
+        config.api.port);
 });

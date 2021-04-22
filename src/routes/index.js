@@ -14,8 +14,8 @@ router.get('/duplication', (req, res) => {
 });
 
 router.post('/duplication', (req, res) => {
-    const { nt, t, a, no, medicion } = req.body;
-    duplication.setdata(nt, t, a, no, medicion);
+    const { nt, t, a, no, medicion, poblation } = req.body;
+    duplication.setdata(nt, t, a, no, medicion, poblation);
 
     res.render('resultsDuplications.ejs', { duplication })
 });
