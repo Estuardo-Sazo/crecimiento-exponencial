@@ -21,7 +21,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/duplication', (req, res) => {
-    console.log(duplication, info, data);
+    info.ini = false;
+    info.list = false;
+    info.time = false;
+    info.after = false;
 
     res.render('duplication.ejs')
 });
@@ -29,7 +32,6 @@ router.get('/duplication', (req, res) => {
 router.post('/duplication', (req, res) => {
     const { nt, t, a, no, medicion, poblation } = req.body;
     duplication.setdata(parseInt(nt), parseInt(t), parseInt(a), parseInt(no), medicion, poblation);
-    console.log(duplication, info, data);
 
     res.render('resultsDuplications.ejs', { duplication, info, data });
 });
@@ -81,7 +83,6 @@ router.post('/duplication/time', (req, res) => {
 
 
 router.get('/duplication-results', (req, res) => {
-    console.log(duplication, info, data);
 
     res.render('resultsDuplications.ejs', { duplication, info, data });
 })
