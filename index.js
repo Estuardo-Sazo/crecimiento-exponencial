@@ -8,7 +8,7 @@ const morgan = require('morgan');
 
 app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'ejs');
-app.use(morgan('dev'));
+0
 app.use(express.urlencoded({ extended: false }));
 
 //Route

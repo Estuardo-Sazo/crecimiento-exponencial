@@ -6,10 +6,10 @@
 */
 class Duplication {
     constructor() {
-        this.nt = '';
-        this.t = '';
-        this.a = '';
-        this.no = '';
+        this.nt = 0;
+        this.t = 0;
+        this.a = 0;
+        this.no = 0;
         this.medicion = '';
         this.poblation = '';
     }
@@ -33,11 +33,11 @@ class Duplication {
         return parseFloat(size.toFixed(2));
     }
 
-   async sizeList(t = 0, interval = 1) {
+    sizeList(t = 0, interval = 1) {
         let list = [];
         let data = {}
         let index = 0;
-          for (let i = 0; i <= t; i += interval) {
+        for (let i = 0; i <= t; i += interval) {
             let value = this.no * Math.pow(2, (i / this.a));
             data = {
                 i,

@@ -2,74 +2,74 @@
 <html lang="es">
 
 <head>
-  <%- include('partials/header') -%>
+    <%- include('partials/header') -%>
 </head>
 
 <body>
-  <div class="container p-4">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
-        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-          <div class="card-body">
-            <h4 class="card-title">Ingresa los datos</h4>
-            <form method="POST" action="/duplication">
-              <div class="row">
-                <div class="col">
-                  <div class="form-group">
-                    <label for="">Población Inicial (no)</label>
-                    <input class="form-control" type="number" step="any" name="no" id="no" />
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="form-group">
-                    <label for="">Tiempo de duplicación (a)</label>
-                    <input class="form-control" type="number" step="any" name="a" id="a" />
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="form-group">
-                    <label for="">Tiempo transcurido (t)</label>
-                    <input class="form-control" type="number" step="any" name="t" id="t" />
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="form-group">
-                    <label for="">Población actual (nt)</label>
-                    <input class="form-control" type="number" step="any" name="nt" id="nt" />
-                  </div>
-                </div>
-              </div>
+    <div class="container p-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="card-body">
+                        <h4 class="card-title">Ingresa los datos</h4>
+                        <form method="POST" action="/duplication">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Población Inicial (no)</label>
+                                        <input class="form-control" type="number" step="any" name="no" id="no" required/>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Tiempo de duplicación (a)</label>
+                                        <input class="form-control" type="number" step="any" name="a" id="a" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Tiempo transcurido (t)</label>
+                                        <input class="form-control" type="number" step="any" name="t" id="t" required/>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Población actual (nt)</label>
+                                        <input class="form-control" type="number" step="any" name="nt" id="nt" required/>
+                                    </div>
+                                </div>
+                            </div>
 
-              <div class="row">
-                <div class="col">
-                  <div class="form-group">
-                    <label for="medicion">Tipo de medición</label>
-                    <select class="form-control" id="medicion" name="medicion">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="medicion">Tipo de medición</label>
+                                        <select class="form-control" id="medicion" name="medicion">
                       <option value="Días">Días</option>
                       <option value="Semanas">Semanas</option>
                       <option value="Meses">Meses</option>
                       <option value="Años">Años</option>
                     </select>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="form-group">
-                    <label for="">Población</label>
-                    <input class="form-control" type="text" name="poblation" id="poblation" placeholder="Bacterias" />
-                  </div>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="">Población</label>
+                                        <input class="form-control" type="text" name="poblation" id="poblation" placeholder="Bacterias" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
                 Enviar Datos
               </button>
-            </form>
-          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </body>
 
 </html>

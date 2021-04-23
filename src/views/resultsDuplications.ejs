@@ -1,157 +1,147 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <%- include('partials/header') -%>
-  </head>
 
-  <body>
+<head>
+    <%- include('partials/header') -%>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css" />
+        <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+</head>
+
+<body>
+    <input type="hidden" name="data" id="data" value="<%=data%>" />
+
     <!-- modal Poblacion despues de tiempo -->
-    <div
-      class="modal fade"
-      id="sizeAfter"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">
-              Poblacion despues de tiempo
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
+    <div class="modal fade" id="sizeAfter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                        Poblacion despues de tiempo
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body">
-            <form action="duplication/after" method="post">
-              <label for="">Ingrese el tiempo transcurido</label>
-              <div class="input-group mb-3">
-                <input
-                  type="number"
-                  class="form-control"
-                  placeholder="Tiempo"
-                  aria-describedby="basic-addon2"
-                  name="t"
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2"
-                    ><%=duplication.medicion %></span
-                  >
                 </div>
-              </div>
-              <button type="submit" class="btn btn-success btn-block">
+                <div class="modal-body">
+                    <form action="duplication/after" method="post">
+                        <label for="">Ingrese el tiempo transcurido</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Tiempo" aria-describedby="basic-addon2" name="t" />
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">
+                    <%=duplication.medicion %>
+                  </span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">
                 Calcular Población
               </button>
-            </form>
-          </div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
-
-     <!--Modal lista de poblacion por tiempo e intervalo -->
-     <div
-     class="modal fade"
-     id="sizeList"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="exampleModalCenterTitle"
-     aria-hidden="true"
-   >
-     <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title" id="exampleModalLongTitle">
-             Listado de población
-           </h5>
-           <button
-             type="button"
-             class="close"
-             data-dismiss="modal"
-             aria-label="Close"
-           >
-             <span aria-hidden="true">&times;</span>
-           </button>
-         </div>
-         <div class="modal-body">
-           <form action="duplication/list" method="post">
-             <div class="form-group">
-              <label for="">Ingrese el tiempo </label>
-              <div class="input-group mb-3">
-                <input
-                  type="number"
-                  class="form-control"
-                  placeholder="Tiempo"
-                  aria-describedby="basic-addon2"
-                  name="t"
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2"
-                    ><%=duplication.medicion %></span
-                  >
+    <!-- modal Poblacion despues de tiempo -->
+    <div class="modal fade" id="sizeTime" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                        Tiempo para llegar al tamaño de poblacion
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
                 </div>
-              </div>
-             </div>
-             <div class="form-group">
-              <label for="">Ingrese el Intervalo </label>
-              <div class="input-group mb-3">
-                <input
-                  type="number"
-                  class="form-control"
-                  placeholder="Interval"
-                  aria-describedby="basic-addon2"
-                  name="i"
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2"
-                    ><%=duplication.medicion %></span
-                  >
+                <div class="modal-body">
+                    <form action="duplication/time" method="post">
+                        <label for="">Ingrese el tamaño de poblacion</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" placeholder="Tiempo" aria-describedby="basic-addon2" name="nt" />
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">
+                    <%=duplication.poblation %>
+                  </span>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">
+                Calcular Tiempo
+              </button>
+                    </form>
                 </div>
-              </div>
-             </div>
-             <button type="submit" class="btn btn-success btn-block">
-               Calcular Población
-             </button>
-           </form>
-         </div>
-       </div>
-     </div>
-   </div>
+            </div>
+        </div>
+    </div>
 
+    <!--Modal lista de poblacion por tiempo e intervalo -->
+    <div class="modal fade" id="sizeList" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                        Listado de población
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <form action="duplication/list" method="post">
+                        <div class="form-group">
+                            <label for="">Ingrese el tiempo </label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" placeholder="Tiempo" aria-describedby="basic-addon2" name="t" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">
+                      <%=duplication.medicion %>
+                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Ingrese el Intervalo </label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" placeholder="Interval" aria-describedby="basic-addon2" name="i" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">
+                      <%=duplication.medicion %>
+                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">
+                Calcular Población
+              </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-   <!-- ---------- -->
+    <!-- ---------- -->
 
     <div class="container mt-3">
-      <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-7">
-          <div class="card shadow-lg mb-5 bg-white rounded">
-            <div class="card-body">
-              <h4 class="text-center">
-                Crecimiento exponencial (tiempo de duplicación)
-              </h4>
-              <h5>Datos</h5>
-              <div class="row">
-                <div class="col-6 mt-2">
-                  <label
-                    >Población Inicial (no):
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+                <div class="card shadow-lg mb-5 bg-white rounded">
+                    <div class="card-body">
+                        <h4 class="text-center">
+                            Crecimiento exponencial (tiempo de duplicación)
+                        </h4>
+                        <h5>Datos</h5>
+                        <div class="row">
+                            <div class="col-6 mt-2">
+                                <label>Población Inicial (no):
                     <span id="no"
                       ><strong>
-                        <%= (info.ini)? duplication.no.toFixed(2):'Sin definir'
-                        %> <%=duplication.poblation %></strong
-                      ></span
+                        <%=(info.ini)?duplication.no.toFixed(2):'Sin definir'%> <%=duplication.poblation %>
+                      </strong></span
                     >
                   </label>
-                </div>
-                <div class="col-6 mt-2">
-                  <label for=" "
-                    >Tiempo de duplicación (a):
+                            </div>
+                            <div class="col-6 mt-2">
+                                <label for=" ">Tiempo de duplicación (a):
                     <strong>
                       <%=duplication.a %> <%=duplication.medicion %>
                     </strong></label
@@ -177,82 +167,58 @@
             </div>
           </div>
         </div>
+        <div class="col-md-4">
+          <div class="card shadow-lg p-1 mb-2 bg-white rounded">
+            <div class="card-body">
+              <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <% if(!info.ini){%> <a class="btn btn-primary m-1" href="/duplication/ini" >Poblacion Inicial</a>    <% } %>
+                <a class="btn btn-primary m-1" data-toggle="modal" data-target="#sizeAfter" >Poblacion Despues de</a> 
+                <a class="btn btn-primary m-1" data-toggle="modal" data-target="#sizeList" >Grafica por tiempo</a> 
+                <a class="btn btn-primary m-1" data-toggle="modal" data-target="#sizeTime">Tamaño de poblacion</a> 
+                <a class="btn btn-primary m-1" href="/duplication" >Ingresar nuevos datos</a>   
+                <a class="btn btn-primary m-1" href="/" >Volver a Inicio</a>   
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="row justify-content-center">
-        <% if(!info.ini){%>
-
-        <div class="col-md-3">
-          <a href="/duplication/ini">
-            <div class="card shadow-lg p-1 mb-2 bg-white roundedll">
-              <div class="card-body">
-                <h4 class="text-center text-dark">Población Inicial</h4>
-              </div>
-            </div>
-          </a>
-        </div>
-        <% } %>
-        <div class="col-md-3">
-          <a data-toggle="modal" data-target="#sizeAfter">
-            <div class="card focus shadow-lg p-1 mb-2 bg-white rounded">
-              <div class="card-body">
-                <h4 class="text-center text-dark">Población despues</h4>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-3">
-          <a data-toggle="modal" data-target="#sizeList">
-            <div class="card focus shadow-lg p-1 mb-2 bg-white rounded">
-              <div class="card-body">
-                <h4 class="text-center text-dark">Graficar tiempo</h4>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
 
       <div class="row justify-content-center">
         <% if(info.ini){ %>
-        <div class="col-md-7">
-          <div
-            class="alert alert-success alert-dismissible fade show"
-            role="alert"
-          >
-            La población inical es de
-            <strong
-              ><%=duplication.no.toFixed(2) %> <%=duplication.poblation
-              %></strong
-            >
-            <button
-              type="button"
-              class="close"
-              data-dismiss="alert"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="col-md-6">
+          <div class="card shadow-lg p-1 mb-2 bg-white rounded">
+            <div class="card-body">
+              La población inical es de
+              <strong>
+                <%=duplication.no.toFixed(2) %> <%=duplication.poblation %>
+              </strong>
+            </div>
+          </div>
+        </div>
+
+        <%}%> <% if(info.time){ %>
+        <div class="col-md-6">
+          <div class="card shadow-lg p-1 mb-2 bg-white rounded">
+            <div class="card-body">
+              La población de
+              <strong><%=duplication.poblation %> </strong> llegara a
+              <strong><%=info.tm %> </strong> en <strong><%=info.nt %> </strong>
+              <%=duplication.medicion %>
+            </div>
           </div>
         </div>
 
         <%}%> <% if(info.after){ %>
-        <div class="col-md-7">
-          <div
-            class="alert alert-success alert-dismissible fade show"
-            role="alert"
-          >
-            El tamaño de la población despues de
-            <strong> <%=info.t %> <%=duplication.medicion %></strong> es de
-            <strong> <%=duplication.sizeAfter(info.t) %> </strong>
-            <strong> <%=duplication.poblation %></strong>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="alert"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="col-md-6">
+          <div class="card shadow-lg p-1 mb-2 bg-white rounded">
+            <div class="card-body">
+              El tamaño de la población despues de
+              <strong> <%=info.t %> <%=duplication.medicion %> </strong> es de
+              <strong> <%=duplication.sizeAfter(info.t) %> </strong>
+              <strong> <%=duplication.poblation %> </strong>
+            </div>
           </div>
         </div>
 
@@ -260,44 +226,70 @@
       </div>
 
       <% if(info.list){ %>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card">
-              <div class="card-body">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col"><%=duplication.medicion %></th>
-                      <th scope="col">Cantidad</th>
-                    </tr>
-                  </thead>
-                  <tbody>                
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card shadow-lg p-1 mb-2 bg-white rounded">
+            <div class="card-body">
+              <h5 class="text-center">Tabla de datos</h5>
 
-                    <%  data.forEach(function(v){ %>
-                      <tr>
-                        <th scope="row"><%=v.i %></th>
-                        <td><%=v.value %> <%=duplication.poblation %></td>
-                       
-                      </tr>
-                      <%
-                    });%>
-                   
-                  </tbody>
-                </table>
-              </div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col"><%=duplication.medicion %></th>
+                    <th scope="col">Cantidad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% data.forEach(function(v){ %>
+                  <tr>
+                    <th scope="row"><%=v.i %></th>
+                    <td><%=v.value %> <%=duplication.poblation %></td>
+                  </tr>
+                  <% });%>
+                </tbody>
+              </table>
             </div>
           </div>
-          <div class="col-md-6">
-            <h2>Grafica</h2>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow-lg p-1 mb-2 bg-white rounded">
+            <div class="card-body">
+              <h5 class="text-center">Grafica</h5>
+              <div class="ct-chart ct-perfect-fourth"></div>
+            </div>
           </div>
         </div>
-  
-        <%}%>
+      </div>
+
+      <%}%>
     </div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/mainDuplication.js"></script>
+
+    <script type="text/javascript">
+      var rows = <%-JSON.stringify(data)%>;
+
+      var l = [];
+      var s = [];
+      rows.forEach(function(r) {
+          l.push(r.i)
+          s.push(r.value)
+
+      });
+
+      new Chartist.Line('.ct-chart', {
+          labels: l,
+          series: [s]
+      }, {
+          fullWidth: true,
+          chartPadding: {
+              right: 40
+          }
+      });
+
+      console.log(l, s);
+    </script>
   </body>
 </html>
