@@ -1,8 +1,24 @@
 const { Router } = require('express');
 const Duplication = require('../models/duplication');
+const Relative = require('../models/relative');
 
 const router = Router();
 const duplication = new Duplication();
+const relative = new Relative();
+
+relative.setdata(400, 2, 0, 0, 'Personas', 'Años');
+
+/* console.log(relative.tasaRelative(25600, 6) * 100);
+console.log(relative.inicialSize());
+console.log(relative.sizeAfter(4.5));
+console.log(relative.sizeTime(50000));
+console.log(relative.sizeList(10, 1)); */
+
+
+
+console.log(relative);
+
+
 const info = {
     ini: false,
     after: false,
@@ -80,7 +96,6 @@ router.post('/duplication/time', (req, res) => {
 
     res.redirect('/duplication-results');
 });
-
 
 router.get('/duplication-results', (req, res) => {
 
