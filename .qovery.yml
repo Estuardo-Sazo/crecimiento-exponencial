@@ -1,0 +1,11 @@
+---
+application:
+  name: "crecimiento-exponencial-app"
+  project: "crecimiento-exponencial-app"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-crecimiento-exponencial-app"
+  routes:
+  - application_name: "crecimiento-exponencial-app"
+    paths:
+    - "/*"

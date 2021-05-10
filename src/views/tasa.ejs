@@ -7,15 +7,16 @@
 
 <body>
     <%- include('partials/nav') -%>
+
         <div class="container p-4">
-            <h2 class="text-center text-white">Crecimiento Exponencial (Tiempo de duplicación)</h1>
+            <h2 class="text-center text-white">Crecimiento Exponencial (Tasa Relativa)</h1>
                 <br>
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-6">
                         <div class="card shadow-lg p-3 mb-5 bg-white rounded">
                             <div class="card-body">
                                 <h4 class="card-title">Ingresa los datos</h4>
-                                <form method="POST" action="/duplication">
+                                <form method="POST" action="/tasa">
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
@@ -25,8 +26,14 @@
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="">Tiempo de duplicación (a)</label>
-                                                <input class="form-control" type="number" step="any" name="a" id="a" required/>
+                                                <label for="">Tasa de crecimiento relativa (r)</label>
+                                                <div class="input-group">
+                                                    <input class="form-control" type="number" step="any" name="r" id="r" required/>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">%</span>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -39,7 +46,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="">Población actual (nt)</label>
+                                                <label for="">Población en el tiempo (nt)</label>
                                                 <input class="form-control" type="number" step="any" name="nt" id="nt" required/>
                                             </div>
                                         </div>
