@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <input type="hidden" name="data" id="data" value="<%=data%>" />
+    <input type="hidden" name="data" id="data" value="<%=dataTasa%>" />
 
     <!-- modal Poblacion despues de tiempo -->
     <div class="modal fade" id="sizeAfter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -16,20 +16,20 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">
-                        Poblacion despues de tiempo
+                        Población despues de tiempo
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
                 </div>
                 <div class="modal-body">
-                    <form action="duplication/after" method="post">
+                    <form action="tasa/after" method="post">
                         <label for="">Ingrese el tiempo transcurido</label>
                         <div class="input-group mb-3">
-                            <input type="number" class="form-control" placeholder="Tiempo" aria-describedby="basic-addon2" name="t" />
+                            <input type="number" step="any" class="form-control" placeholder="Tiempo" aria-describedby="basic-addon2" name="t" />
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">
-                    <%=duplication.medicion %>
+                    <%=relative.medicion %>
                   </span>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <!-- modal Poblacion despues de tiempo -->
+    <!-- modal Poblacion tiempo necesario  -->
     <div class="modal fade" id="sizeTime" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
             <div class="modal-content">
@@ -55,13 +55,13 @@
             </button>
                 </div>
                 <div class="modal-body">
-                    <form action="duplication/time" method="post">
+                    <form action="tasa/time" method="post">
                         <label for="">Ingrese el tamaño de poblacion</label>
                         <div class="input-group mb-3">
-                            <input type="number" class="form-control" placeholder="Tiempo" aria-describedby="basic-addon2" name="nt" />
+                            <input type="number" class="form-control" placeholder="Tamaño" aria-describedby="basic-addon2" name="nt" />
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">
-                    <%=duplication.poblation %>
+                    <%=relative.poblation %>
                   </span>
                             </div>
                         </div>
@@ -87,14 +87,14 @@
             </button>
                 </div>
                 <div class="modal-body">
-                    <form action="duplication/list" method="post">
+                    <form action="tasa/list" method="post">
                         <div class="form-group">
                             <label for="">Ingrese el tiempo </label>
                             <div class="input-group mb-3">
                                 <input type="number" class="form-control" placeholder="Tiempo" aria-describedby="basic-addon2" name="t" />
                                 <div class="input-group-append">
                                     <span class="input-group-text" id="basic-addon2">
-                      <%=duplication.medicion %>
+                      <%=relative.medicion %>
                     </span>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                                 <input type="number" class="form-control" placeholder="Interval" aria-describedby="basic-addon2" name="i" />
                                 <div class="input-group-append">
                                     <span class="input-group-text" id="basic-addon2">
-                      <%=duplication.medicion %>
+                      <%=relative.medicion %>
                     </span>
                                 </div>
                             </div>
@@ -119,6 +119,51 @@
         </div>
     </div>
 
+
+    <!--Modal Encotrar Tasa relativa -->
+    <div class="modal fade" id="tasaRelative" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                        Entontrar Tasa Relativa
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+                </div>
+                <div class="modal-body">
+                    <form action="tasa/tasaRelative" method="post">
+                        <div class="form-group">
+                            <label for="">Población (nt2)</label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" placeholder="Población" aria-describedby="basic-addon2" name="nt2" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">
+                      <%=relative.poblation %>
+                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Timepo (t2) </label>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" placeholder="Tiempo" aria-describedby="basic-addon2" name="t2" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">
+                      <%=relative.medicion %>
+                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">
+                Calcular Población
+              </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ---------- -->
     <%- include('partials/nav') -%>
 
@@ -128,7 +173,7 @@
                     <div class="card shadow-lg mb-5 bg-white rounded">
                         <div class="card-body">
                             <h4 class="text-center">
-                                Crecimiento exponencial (tiempo de duplicación)
+                                Crecimiento exponencial (Tasa Relativa)
                             </h4>
                             <h5>Datos</h5>
                             <div class="row">
@@ -136,15 +181,15 @@
                                     <label>Población Inicial (no):
                     <span id="no"
                       ><strong>
-                        <%=duplication.no.toFixed(2)%>
+                        <%=relative.no.toFixed(2)%>
                       </strong></span
                     >
                   </label>
                                 </div>
                                 <div class="col-6 mt-2">
-                                    <label for=" ">Tiempo de duplicación (a):
+                                    <label for=" ">Tasa de crecimiento relativa (r):
                     <strong>
-                      <%=duplication.a %> <%=duplication.medicion %>
+                      <%=(relative.r*100).toFixed(2) %>%
                     </strong></label
                   >
                 </div>
@@ -152,7 +197,7 @@
                   <label for=" ">
                     Tiempo transcurido (t):
                     <strong>
-                      <%= duplication.t %> <%=duplication.medicion %>
+                      <%= relative.t %> <%=relative.medicion %>
                     </strong></label
                   >
                 </div>
@@ -160,7 +205,7 @@
                   <label for=" ">
                     Población actual (nt):
                     <strong>
-                      <%= duplication.nt %> <%=duplication.poblation %>
+                      <%= relative.nt %> <%=relative.poblation %>
                     </strong></label
                   >
                 </div>
@@ -172,11 +217,12 @@
           <div class="card shadow-lg p-1 mb-2 bg-white rounded">
             <div class="card-body">
               <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <% if(!info.ini){%> <a class="btn btn-primary m-1" href="/duplication/ini" >Poblacion Inicial</a>    <% } %>
+                <% if(!infoTasa.ini){%> <a class="btn btn-primary m-1" href="/tasa/ini" >Poblacion Inicial</a>    <% } %>
                 <a class="btn btn-primary m-1" data-toggle="modal" data-target="#sizeAfter" >Poblacion Despues de</a> 
+                <a class="btn btn-primary m-1" data-toggle="modal" data-target="#tasaRelative" >Encontrar Tasa Relativa</a>
                 <a class="btn btn-primary m-1" data-toggle="modal" data-target="#sizeList" >Grafica por tiempo</a> 
                 <a class="btn btn-primary m-1" data-toggle="modal" data-target="#sizeTime">Tamaño de poblacion</a> 
-                <a class="btn btn-primary m-1" href="/duplication" >Ingresar nuevos datos</a>   
+                <a class="btn btn-primary m-1" href="/tasa" >Ingresar nuevos datos</a>   
                 <a class="btn btn-primary m-1" href="/" >Volver a Inicio</a>   
 
               </div>
@@ -187,41 +233,56 @@
 
 
       <div class="row justify-content-center">
-        <% if(info.ini){ %>
+        <% if(infoTasa.ini){ %>
         <div class="col-md-6">
           <div class="card shadow-lg p-1 mb-2 bg-white rounded">
             <div class="card-body">
              <h3> La población inical es de
               <strong>
-                <%=duplication.no.toFixed(2) %> <%=duplication.poblation %>
+                <%=relative.no.toFixed(2) %> <%=relative.poblation %>
               </strong>
             </h3>
             </div>
           </div>
         </div>
 
-        <%}%> <% if(info.time){ %>
+        <%}%> 
+        <% if(infoTasa.tasa){ %>
+            <div class="col-md-6">
+              <div class="card shadow-lg p-1 mb-2 bg-white rounded">
+                <div class="card-body">
+                 <h3> La Tasa relativa es de
+                  <strong>
+                    <%=(relative.r*100).toFixed(2) %>%
+                  </strong>
+                </h3>
+                </div>
+              </div>
+            </div>
+    
+            <%}%>
+        <% if(infoTasa.time){ %>
         <div class="col-md-6">
           <div class="card shadow-lg p-1 mb-2 bg-white rounded">
             <div class="card-body">
             <h3> La población de
-              <strong><%=duplication.poblation %> </strong> llegara a
-              <strong><%=info.tm %> </strong> en <strong><%=info.nt %> </strong>
-              <%=duplication.medicion %>
+              <strong><%=relative.poblation %> </strong> llegara a
+              <strong><%=infoTasa.tm %> </strong> en <strong><%=infoTasa.nt %> </strong>
+              <%=relative.medicion %>
             </h3>
             </div>
           </div>
         </div>
 
-        <%}%> <% if(info.after){ %>
+        <%}%> <% if(infoTasa.after){ %>
         <div class="col-md-6">
           <div class="card shadow-lg p-1 mb-2 bg-white rounded">
             <div class="card-body">
             <h3>
               El tamaño de la población despues de
-              <strong> <%=info.t %> <%=duplication.medicion %> </strong> es de
-              <strong> <%=duplication.sizeAfter(info.t) %> </strong>
-              <strong> <%=duplication.poblation %> </strong></h3>
+              <strong> <%=infoTasa.t %> <%=relative.medicion %> </strong> es de
+              <strong> <%=relative.sizeAfter(infoTasa.t) %> </strong>
+              <strong> <%=relative.poblation %> </strong></h3>
             </div>
           </div>
         </div>
@@ -229,7 +290,7 @@
         <%}%>
       </div>
 
-      <% if(info.list){ %>
+      <% if(infoTasa.list){ %>
       <div class="row">
         <div class="col-md-6">
           <div class="card shadow-lg p-1 mb-2 bg-white rounded">
@@ -239,15 +300,15 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col"><%=duplication.medicion %></th>
+                    <th scope="col"><%=relative.medicion %></th>
                     <th scope="col">Cantidad</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <% data.forEach(function(v){ %>
+                  <% dataTasa.forEach(function(v){ %>
                   <tr>
                     <th scope="row"><%=v.i %></th>
-                    <td><%=v.value %> <%=duplication.poblation %></td>
+                    <td><%=v.value %> <%=relative.poblation %></td>
                   </tr>
                   <% });%>
                 </tbody>
@@ -273,7 +334,7 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
-      var rows = <%-JSON.stringify(data)%>;
+      var rows = <%-JSON.stringify(dataTasa)%>;
 
       var l = [];
       var s = [];

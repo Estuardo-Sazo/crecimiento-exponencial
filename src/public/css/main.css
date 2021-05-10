@@ -1,4 +1,5 @@
-body {
+body,
+nav {
     background: #136a8a;
     /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #267871, #136a8a);
@@ -13,6 +14,6 @@ a:hover {
     text-decoration: none;
 }
 
-.focus{
+.focus {
     cursor: pointer;
 }

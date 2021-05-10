@@ -6,27 +6,32 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2 class="text-center text-dark">Selecciona un metodo</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <a href="/duplication">
-                    <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-                        <div class="card-body">
-                            <h4 class="text-center text-dark">Duplicidad</h4>
+    <%- include('partials/nav') -%>
+
+        <div class="container p-4">
+            <h2 class="text-center text-white">Selecciona un metodo</h2>
+            <br>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <a href="/duplication">
+                        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="card-body">
+                                <h4 class="text-center text-dark">Duplicidad</h4>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
-                    <div class="card-body">
-                        <h4 class="text-center text-dark">Tasa relativa</h4>
-                    </div>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="/tasa">
+                        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                            <div class="card-body">
+                                <h4 class="text-center text-dark">Tasa relativa</h4>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 
 
